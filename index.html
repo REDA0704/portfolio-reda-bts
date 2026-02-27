@@ -1,44 +1,451 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Reda Ait Ammar | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Portfolio - BTS SIO SLAM</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+    <!-- Menu de navigation fixe -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#accueil">BTS<span>SIO</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#presentation" class="nav-link">Présentation</a></li>
+                <li><a href="#bts-sio" class="nav-link">BTS SIO</a></li>
+                <li><a href="#formations" class="nav-link">Formations</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#alternance" class="nav-link">Alternance</a></li>
+                <li><a href="#projets-entreprise" class="nav-link">Projets entreprise</a></li>
+                <li><a href="#projets-scolaires" class="nav-link">Projets scolaires</a></li>
+                <li><a href="#tableau-synthese" class="nav-link">Tableau synthèse</a></li>
+                <li><a href="#veille" class="nav-link">Veille</a></li>
+                <li><button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-<nav>
-    <div class="container">
-        <a href="index.html">Accueil</a>
-        <a href="projets.html">Projets</a>
-        <a href="cv.html">CV</a>
-        <a href="tableau-synthese.html">Tableau de synthèse</a>
-        <a href="veille.html">Veille</a>
-    </div>
-</nav>
+    <!-- Section Accueil -->
+    <section id="accueil" class="section accueil">
+        <div class="container">
+            <div class="accueil-content">
+                <h1 class="animate-text">Étudiant en BTS SIO</h1>
+                <h2 class="animate-text-delay">Option SLAM</h2>
+                <p class="animate-text-delay2">Solutions Logicielles et Applications Métiers</p>
+                <div class="cta-buttons">
+                    <a href="#presentation" class="btn btn-primary">Découvrir mon parcours</a>
+                    <a href="#alternance" class="btn btn-secondary">Mon alternance</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<header>
-    <div class="container">
-        <h1>Reda Ait Ammar</h1>
-        <p>BTS SIO SLAM | Alternant Data Analyst</p>
-        <button onclick="scrollProfil()" class="btn">Voir mon profil</button>
-    </div>
-</header>
+    <!-- Section Présentation -->
+    <section id="presentation" class="section presentation">
+        <div class="container">
+            <h2 class="section-title">Présentation</h2>
+            <div class="presentation-content">
+                <div class="presentation-text">
+                    <p>Bonjour, je suis un étudiant en BTS SIO passionné par le développement logiciel et les applications métier. Je suis actuellement en alternance chez <strong>Transpack</strong> où je développe mes compétences en reporting et automatisation. Je suis à la recherche d'opportunités pour continuer à évoluer dans le domaine de l'informatique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="apropos" class="section">
-    <div class="container">
-        <h2>Bienvenue sur mon portfolio</h2>
-        <p>
-            Ce site présente mes projets réalisés en entreprise et en formation,
-            ainsi que les compétences développées durant mon BTS SIO.
-        </p>
-    </div>
-</section>
+    <!-- Section BTS SIO -->
+    <section id="bts-sio" class="section bts-sio">
+        <div class="container">
+            <h2 class="section-title">BTS SIO</h2>
+            <div class="bts-content">
+                <div class="bts-header">
+                    <h3>Brevet de Technicien Supérieur Services Informatiques aux Organisations</h3>
+                    <p class="bts-description">Le BTS SIO est une formation de niveau bac+2 qui prépare aux métiers de l'informatique. Cette formation se déroule sur deux ans et propose deux options de spécialisation :</p>
+                </div>
+                
+                <div class="options-container">
+                    <div class="option-card sisr">
+                        <div class="option-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4>SISR</h4>
+                        <p>Solutions d'Infrastructure, Systèmes et Réseaux</p>
+                    </div>
+                    
+                    <div class="option-card slam active">
+                        <div class="option-icon">
+                            <i class="fas fa-code"></i>
+                            <span class="badge">Mon option</span>
+                        </div>
+                        <h4>SLAM</h4>
+                        <p>Solutions Logicielles et Applications Métiers</p>
+                    </div>
+                </div>
 
-<script src="js/script.js"></script>
+                <div class="slam-details">
+                    <h4>L'option SLAM forme des spécialistes du développement d'applications. Elle permet d'acquérir les compétences suivantes :</h4>
+                    <div class="competences-grid">
+                        <div class="competence-item">
+                            <i class="fas fa-code"></i>
+                            <span>Développement d'applications (web, mobile, desktop)</span>
+                        </div>
+                        <div class="competence-item">
+                            <i class="fas fa-database"></i>
+                            <span>Conception et gestion de bases de données</span>
+                        </div>
+                        <div class="competence-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Analyse et conception de solutions informatiques</span>
+                        </div>
+                        <div class="competence-item">
+                            <i class="fas fa-tools"></i>
+                            <span>Maintenance et évolution d'applications existantes</span>
+                        </div>
+                        <div class="competence-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Rédaction de documentation technique</span>
+                        </div>
+                        <div class="competence-item">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Support et formation des utilisateurs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formations -->
+    <section id="formations" class="section formations">
+        <div class="container">
+            <h2 class="section-title">Formations</h2>
+            <div class="formations-timeline">
+                <div class="formation-card">
+                    <div class="formation-year">2021</div>
+                    <div class="formation-content">
+                        <h3>Baccalauréat Général</h3>
+                        <p class="formation-location"><i class="fas fa-map-marker-alt"></i> Algérie</p>
+                        <p class="formation-desc">Spécialités Mathématiques et Physique.</p>
+                    </div>
+                </div>
+
+                <div class="formation-card">
+                    <div class="formation-year">2021 - 2023</div>
+                    <div class="formation-content">
+                        <h3>Licence Mathématiques-Informatique</h3>
+                        <p class="formation-location"><i class="fas fa-map-marker-alt"></i> Université Gustave Eiffel</p>
+                        <p class="formation-desc">Deux années d'études en mathématiques et informatique.</p>
+                    </div>
+                </div>
+
+                <div class="formation-card current">
+                    <div class="formation-year">2023 - 2025</div>
+                    <div class="formation-content">
+                        <h3>BTS SIO option SLAM</h3>
+                        <p class="formation-location"><i class="fas fa-map-marker-alt"></i> Lycée Aurlom</p>
+                        <p class="formation-desc">Formation en développement d'applications et solutions logicielles pour les entreprises.</p>
+                        <span class="current-badge">En cours</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="competences" class="section competences">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            
+            <div class="competences-categories">
+                <!-- Langages de programmation -->
+                <div class="categorie">
+                    <h3><i class="fas fa-code"></i> Langages de programmation</h3>
+                    <div class="skills-grid">
+                        <div class="skill-pill"><i class="fab fa-html5"></i> HTML/CSS</div>
+                        <div class="skill-pill"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="skill-pill"><i class="fab fa-php"></i> PHP</div>
+                        <div class="skill-pill"><i class="fas fa-code"></i> C#</div>
+                        <div class="skill-pill"><i class="fas fa-database"></i> SQL</div>
+                        <div class="skill-pill"><i class="fab fa-python"></i> Python</div>
+                        <div class="skill-pill"><i class="fas fa-file-code"></i> Google Apps Script</div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Bibliothèques -->
+                <div class="categorie">
+                    <h3><i class="fas fa-cubes"></i> Frameworks & Bibliothèques</h3>
+                    <div class="skills-grid">
+                        <div class="skill-pill"><i class="fas fa-window-maximize"></i> Windows Forms</div>
+                        <div class="skill-pill"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+                        <div class="skill-pill"><i class="fas fa-code"></i> jQuery</div>
+                        <div class="skill-pill"><i class="fab fa-tailwind-css"></i> Tailwind CSS</div>
+                    </div>
+                </div>
+
+                <!-- Outils & Environnements -->
+                <div class="categorie">
+                    <h3><i class="fas fa-tools"></i> Outils & Environnements</h3>
+                    <div class="skills-grid">
+                        <div class="skill-pill"><i class="fab fa-git-alt"></i> Git</div>
+                        <div class="skill-pill"><i class="fas fa-code"></i> VS Code</div>
+                        <div class="skill-pill"><i class="fas fa-database"></i> MySQL</div>
+                        <div class="skill-pill"><i class="fas fa-database"></i> SQL Server</div>
+                        <div class="skill-pill"><i class="fas fa-table"></i> Google Sheets</div>
+                    </div>
+                </div>
+
+                <!-- Compétences transversales -->
+                <div class="categorie">
+                    <h3><i class="fas fa-users"></i> Compétences transversales</h3>
+                    <div class="skills-grid">
+                        <div class="skill-pill"><i class="fas fa-tasks"></i> Gestion de projet</div>
+                        <div class="skill-pill"><i class="fas fa-users"></i> Travail en équipe</div>
+                        <div class="skill-pill"><i class="fas fa-puzzle-piece"></i> Résolution de problèmes</div>
+                        <div class="skill-pill"><i class="fas fa-newspaper"></i> Veille technologique</div>
+                        <div class="skill-pill"><i class="fas fa-robot"></i> Automatisation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Alternance -->
+    <section id="alternance" class="section alternance">
+        <div class="container">
+            <h2 class="section-title">Alternance</h2>
+            
+            <div class="entreprise-header">
+                <div class="entreprise-logo">
+                    <img src="https://via.placeholder.com/150" alt="Logo Transpack">
+                </div>
+                <div class="entreprise-info">
+                    <h3>Transpack Alliance</h3>
+                    <p class="periode"><i class="fas fa-calendar"></i> Janvier 2024 - Présent</p>
+                    <a href="https://transpack-paris.com" target="_blank" class="entreprise-site">transpack-paris.com</a>
+                </div>
+            </div>
+
+            <div class="entreprise-presentation">
+                <h4>Présentation de l'entreprise</h4>
+                <p>Située au nord de l'Île-de-France, à proximité de l'aéroport de Roissy, Transpack s'impose comme un acteur incontournable du transport et de la logistique, avec une expertise reconnue dans la livraison inter-régionale et urbaine, notamment en région parisienne.</p>
+                
+                <div class="partenaire">
+                    <span>Partenaire logistique officiel de :</span>
+                    <i class="fab fa-amazon"></i>
+                </div>
+
+                <div class="specialites">
+                    <h5>Spécialités</h5>
+                    <ul>
+                        <li>Transport standard et frigorifique (70 % de l'activité)</li>
+                        <li>Transport TP (Travaux Publics) et environnemental (30 %)</li>
+                    </ul>
+                </div>
+
+                <div class="engagement">
+                    <h5>Engagement environnemental</h5>
+                    <p>Transpack s'engage pleinement dans la réduction de son empreinte carbone, avec une flotte récente répondant aux normes Euro 6, limitant les émissions de CO₂ et de particules fines.</p>
+                </div>
+            </div>
+
+            <div class="mon-role">
+                <h3>Mon rôle : Chargé de reporting</h3>
+                
+                <div class="missions-grid">
+                    <div class="mission-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Reporting & Analyse</h4>
+                        <ul>
+                            <li>Création et suivi des KPI liés aux livraisons</li>
+                            <li>Développement de rapports sur l'utilisation du gasoil</li>
+                            <li>Analyse de la gravité des événements de conduite</li>
+                        </ul>
+                    </div>
+
+                    <div class="mission-card">
+                        <i class="fas fa-code"></i>
+                        <h4>Automatisation</h4>
+                        <ul>
+                            <li>Scripts d'automatisation (Google Apps Script)</li>
+                            <li>Optimisation des processus de gestion de flotte</li>
+                            <li>Création automatisée d'emails pour le service admin</li>
+                        </ul>
+                    </div>
+
+                    <div class="mission-card">
+                        <i class="fas fa-desktop"></i>
+                        <h4>Développement</h4>
+                        <ul>
+                            <li>Optimisation du site web</li>
+                            <li>Gestion des problèmes techniques des outils de reporting</li>
+                            <li>Installation de tableaux de bord interactifs</li>
+                        </ul>
+                    </div>
+
+                    <div class="mission-card">
+                        <i class="fas fa-users-cog"></i>
+                        <h4>Support & Amélioration</h4>
+                        <ul>
+                            <li>Traitement des demandes d'amélioration</li>
+                            <li>Support utilisateur</li>
+                            <li>Optimisation de l'interface utilisateur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets en entreprise -->
+    <section id="projets-entreprise" class="section projets-entreprise">
+        <div class="container">
+            <h2 class="section-title">Projets en entreprise</h2>
+            
+            <div class="projets-grid">
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <i class="fas fa-gas-pump"></i>
+                        <h3>Suivi du carburant</h3>
+                    </div>
+                    <p class="projet-description">Outil d'analyse de la consommation de carburant de la flotte de véhicules.</p>
+                    <div class="projet-tech">
+                        <span>JavaScript</span>
+                        <span>Google Apps Script</span>
+                        <span>Data Analysis</span>
+                    </div>
+                    <a href="#" class="projet-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Automatisation de courriels</h3>
+                    </div>
+                    <p class="projet-description">Outil d'automatisation pour le service administratif permettant l'envoi multiple de courriels.</p>
+                    <div class="projet-tech">
+                        <span>Google Apps Script</span>
+                        <span>JavaScript</span>
+                        <span>Gmail API</span>
+                    </div>
+                    <a href="#" class="projet-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Tableaux de bord KPI</h3>
+                    </div>
+                    <p class="projet-description">Visualisation des indicateurs de performance liés aux livraisons et à la performance de la flotte.</p>
+                    <div class="projet-tech">
+                        <span>Data Visualization</span>
+                        <span>JavaScript</span>
+                        <span>Google Data Studio</span>
+                    </div>
+                    <a href="#" class="projet-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets scolaires -->
+    <section id="projets-scolaires" class="section projets-scolaires">
+        <div class="container">
+            <h2 class="section-title">Projets scolaires</h2>
+            
+            <div class="projets-grid">
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>PPE 1 – CoqueShop</h3>
+                    </div>
+                    <p class="projet-description">Site e-commerce de vente de coques de téléphone avec gestion des produits, panier dynamique et comptes clients.</p>
+                    <div class="projet-tech">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                    </div>
+                    <a href="#" class="projet-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <i class="fas fa-laptop"></i>
+                        <h3>PPE 2 – GestionMatos</h3>
+                    </div>
+                    <p class="projet-description">Application Windows Forms pour la gestion du matériel informatique avec base de données SQL Server.</p>
+                    <div class="projet-tech">
+                        <span>C#</span>
+                        <span>Windows Forms</span>
+                        <span>.NET</span>
+                        <span>SQL Server</span>
+                    </div>
+                    <a href="#" class="projet-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tableau de Synthèse -->
+    <section id="tableau-synthese" class="section tableau-synthese">
+        <div class="container">
+            <h2 class="section-title">Tableau de Synthèse</h2>
+            
+            <div class="synthese-content">
+                <p>Ce tableau présente une synthèse des compétences acquises durant ma formation en BTS SIO, option SLAM.</p>
+                
+                <div class="synthese-actions">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-expand"></i> Afficher en grand
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Télécharger
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Veille Technologique -->
+    <section id="veille" class="section veille">
+        <div class="container">
+            <h2 class="section-title">Veille Technologique</h2>
+            
+            <div class="veille-content">
+                <div class="veille-articles">
+                    <article class="article-card">
+                        <div class="article-date">Mars 2024</div>
+                        <h3>L'évolution de l'automatisation dans la logistique</h3>
+                        <p>Article sur les nouvelles technologies d'automatisation et leur impact sur le secteur du transport.</p>
+                        <a href="#" class="article-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-date">Février 2024</div>
+                        <h3>Google Apps Script : Les nouvelles fonctionnalités</h3>
+                        <p>Présentation des dernières mises à jour de Google Apps Script pour l'automatisation.</p>
+                        <a href="#" class="article-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 - Portfolio BTS SIO SLAM</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

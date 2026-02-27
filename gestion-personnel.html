@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Gestion Personnel M2L - Reda Ait Ammar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques à la page projet */
+        .project-page {
+            background: #f5f7fa;
+        }
+
+        .hero-project {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.1)" width="50" height="50"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-project .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-project h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.8s;
+        }
+
+        .hero-project .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .project-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateX(-5px);
+        }
+
+        .section-project {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: #667eea;
+        }
+
+        .content-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-cols {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .mcd-container {
+            background: #2d3748;
+            color: #68d391;
+            padding: 2rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .mcd-diagram {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .sql-code {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 2rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .sql-keyword {
+            color: #f687b3;
+        }
+
+        .sql-type {
+            color: #9ae6b4;
+        }
+
+        .sql-value {
+            color: #90cdf4;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .screenshot-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #cbd5e0;
+        }
+
+        .screenshot-content {
+            padding: 1.5rem;
+        }
+
+        .screenshot-content h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .screenshot-content p {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-icon.java {
+            color: #007396;
+        }
+
+        .tech-icon.mysql {
+            color: #00758f;
+        }
+
+        .tech-icon.jdbc {
+            color: #f89820;
+        }
+
+        .tech-icon.merise {
+            color: #667eea;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .links-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .link-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .link-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .link-box i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .link-box h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-box p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="project-page">
+    
+    <!-- Hero Section -->
+    <section class="hero-project">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+        <div class="container">
+            <h1>Gestion du Personnel M2L</h1>
+            <p class="subtitle">Application Java de gestion des employés et ligues sportives</p>
+            <div class="project-badges">
+                <span class="badge"><i class="fas fa-calendar-alt"></i> Janvier 2024</span>
+                <span class="badge"><i class="fas fa-code"></i> Java • MySQL • JDBC</span>
+                <span class="badge"><i class="fas fa-graduation-cap"></i> BTS SIO SLAM</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contexte -->
+    <section class="section-project">
+        <h2 class="section-title">
+            <i class="fas fa-info-circle"></i>
+            Contexte du projet
+        </h2>
+        
+        <div class="content-box">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #4a5568;">
+                Ce projet a été réalisé dans le cadre de ma formation <strong>BTS SIO option SLAM</strong>. 
+                L'objectif était de développer une application de gestion du personnel pour la 
+                <strong>Maison des Ligues de Lorraine (M2L)</strong>, permettant de gérer les ligues sportives 
+                et leurs employés avec une base de données MySQL.
+            </p>
+        </div>
+
+        <div class="two-cols">
+            <div class="content-box">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">
+                    <i class="fas fa-box"></i> Ressources fournies
+                </h3>
+                <ul style="line-height: 2;">
+                    <li>Structure de base du projet Java</li>
+                    <li>Interface en ligne de commande fonctionnelle</li>
+                    <li>Système de sérialisation pour la persistance</li>
+                    <li>Classes métier (Ligue, Employe, GestionPersonnel)</li>
+                    <li>Pattern DAO préconfiguré</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3 style="color: #48bb78; margin-bottom: 1rem;">
+                    <i class="fas fa-check-circle"></i> Travail réalisé
+                </h3>
+                <ul style="line-height: 2;">
+                    <li>✅ Conception et implémentation base de données MySQL</li>
+                    <li>✅ Création du MCD/MLD selon les règles Merise</li>
+                    <li>✅ Migration de la sérialisation vers JDBC</li>
+                    <li>✅ Développement des DAO (Data Access Objects)</li>
+                    <li>✅ Gestion des relations ligues/employés</li>
+                    <li>✅ Sécurisation des identifiants de connexion</li>
+                    <li>✅ Tests et validation du fonctionnement</li>
+                    <li>✅ Création des maquettes d'interface graphique</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- MCD -->
+    <section class="section-project" style="background: white; padding: 80px 20px;">
+        <h2 class="section-title">
+            <i class="fas fa-project-diagram"></i>
+            Modèle Conceptuel de Données (MCD)
+        </h2>
+
+        <div class="highlight-box">
+            <h3 style="margin-bottom: 1rem;">Relations entre entités</h3>
+            <div class="mcd-diagram">
+                <div style="margin: 2rem 0;">
+                    <strong style="color: #667eea;">APPARTENIR</strong><br>
+                    LIGUE (1,n) ←→ EMPLOYE (0,1)
+                </div>
+                <div style="margin: 2rem 0;">
+                    <strong style="color: #667eea;">ADMINISTRER</strong><br>
+                    LIGUE (0,1) ←→ EMPLOYE (0,1)
+                </div>
+            </div>
+            <p><strong>APPARTENIR :</strong> Un employé appartient à 0 ou 1 ligue. Une ligue peut avoir plusieurs employés.</p>
+            <p><strong>ADMINISTRER :</strong> Une ligue est administrée par 0 ou 1 employé. Un employé peut administrer 0 ou 1 ligue.</p>
+        </div>
+
+        <h3 style="margin-top: 3rem; margin-bottom: 1rem; color: #2d3748;">Structure des tables SQL</h3>
+        
+        <div class="sql-code">
+<span class="sql-keyword">CREATE TABLE</span> LIGUE (
+    num_ligue <span class="sql-type">INT</span> <span class="sql-keyword">PRIMARY KEY AUTO_INCREMENT</span>,
+    nom <span class="sql-type">VARCHAR</span>(<span class="sql-value">100</span>) <span class="sql-keyword">NOT NULL</span>,
+    num_employe <span class="sql-type">INT</span>,
+    <span class="sql-keyword">FOREIGN KEY</span> (num_employe) <span class="sql-keyword">REFERENCES</span> EMPLOYE(num_employe)
+);
+
+<span class="sql-keyword">CREATE TABLE</span> EMPLOYE (
+    num_employe <span class="sql-type">INT</span> <span class="sql-keyword">PRIMARY KEY AUTO_INCREMENT</span>,
+    nom <span class="sql-type">VARCHAR</span>(<span class="sql-value">100</span>) <span class="sql-keyword">NOT NULL</span>,
+    prenom <span class="sql-type">VARCHAR</span>(<span class="sql-value">100</span>) <span class="sql-keyword">NOT NULL</span>,
+    mail <span class="sql-type">VARCHAR</span>(<span class="sql-value">255</span>) <span class="sql-keyword">NOT NULL UNIQUE</span>,
+    password <span class="sql-type">VARCHAR</span>(<span class="sql-value">255</span>) <span class="sql-keyword">NOT NULL</span>,
+    date_arrivee <span class="sql-type">DATE</span> <span class="sql-keyword">NOT NULL</span>,
+    date_depart <span class="sql-type">DATE</span>,
+    num_ligue <span class="sql-type">INT</span>,
+    <span class="sql-keyword">FOREIGN KEY</span> (num_ligue) <span class="sql-keyword">REFERENCES</span> LIGUE(num_ligue)
+);
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section-project">
+        <h2 class="section-title">
+            <i class="fas fa-images"></i>
+            Captures d'écran
+        </h2>
+
+        <div class="screenshots-grid">
+            <div class="screenshot-card">
+                <div class="screenshot-image">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <div class="screenshot-content">
+                    <h4>Menu principal</h4>
+                    <p>Interface en ligne de commande avec navigation intuitive entre les différentes sections</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="screenshot-image">
+                    <i class="fas fa-list"></i>
+                </div>
+                <div class="screenshot-content">
+                    <h4>Gestion des ligues</h4>
+                    <p>Affichage, ajout, modification et suppression des ligues sportives</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="screenshot-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="screenshot-content">
+                    <h4>Gestion des employés</h4>
+                    <p>CRUD complet sur les employés avec affectation aux ligues</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="screenshot-image">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="screenshot-content">
+                    <h4>Base de données MySQL</h4>
+                    <p>Visualisation des tables et relations dans phpMyAdmin</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: #718096; margin-top: 2rem;">
+            <i class="fas fa-info-circle"></i> Captures d'écran de l'application en fonctionnement
+        </p>
+    </section>
+
+    <!-- Technologies -->
+    <section class="section-project" style="background: white; padding: 80px 20px;">
+        <h2 class="section-title">
+            <i class="fas fa-tools"></i>
+            Technologies utilisées
+        </h2>
+
+        <div class="tech-stack">
+            <div class="tech-item">
+                <div class="tech-icon java">
+                    <i class="fab fa-java"></i>
+                </div>
+                <h3>Java</h3>
+                <p>Programmation orientée objet, Pattern DAO, Gestion des exceptions</p>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-icon mysql">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>MySQL</h3>
+                <p>Base de données relationnelle, Contraintes référentielles, Transactions</p>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-icon jdbc">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3>JDBC</h3>
+                <p>Connexion Java-MySQL, PreparedStatement, Gestion des transactions</p>
+            </div>
+
+            <div class="tech-item">
+                <div class="tech-icon merise">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <h3>Merise</h3>
+                <p>Modélisation MCD/MLD, Conception de bases de données</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fonctionnalités -->
+    <section class="section-project">
+        <h2 class="section-title">
+            <i class="fas fa-list-check"></i>
+            Fonctionnalités développées
+        </h2>
+
+        <div class="features-list">
+            <div class="feature-card">
+                <h4><i class="fas fa-building"></i> Gestion des ligues</h4>
+                <ul>
+                    <li>Affichage de toutes les ligues</li>
+                    <li>Ajout d'une nouvelle ligue</li>
+                    <li>Modification d'une ligue existante</li>
+                    <li>Suppression d'une ligue</li>
+                    <li>Affectation d'un administrateur</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4><i class="fas fa-users"></i> Gestion des employés</h4>
+                <ul>
+                    <li>Liste des employés par ligue</li>
+                    <li>Ajout d'un nouvel employé</li>
+                    <li>Modification des informations</li>
+                    <li>Suppression d'un employé</li>
+                    <li>Affectation à une ligue</li>
+                    <li>Gestion du rôle administrateur</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4><i class="fas fa-shield-alt"></i> Sécurité & Persistance</h4>
+                <ul>
+                    <li>Connexion MySQL sécurisée</li>
+                    <li>Identifiants protégés (.gitignore)</li>
+                    <li>Transactions ACID</li>
+                    <li>Gestion des erreurs SQL</li>
+                    <li>Validation des données</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4><i class="fas fa-user-shield"></i> Administration</h4>
+                <ul>
+                    <li>Compte root privilégié</li>
+                    <li>Gestion multi-utilisateurs</li>
+                    <li>Contraintes d'intégrité</li>
+                    <li>Logs et traçabilité</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences -->
+    <section class="section-project" style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 80px 20px;">
+        <h2 class="section-title">
+            <i class="fas fa-graduation-cap"></i>
+            Compétences développées
+        </h2>
+
+        <div class="two-cols">
+            <div class="content-box">
+                <h4 style="color: #667eea; margin-bottom: 1rem;">
+                    <i class="fas fa-pencil-ruler"></i> Conception
+                </h4>
+                <p>Modélisation de bases de données avec Merise, création de MCD/MLD, normalisation, gestion des cardinalités et contraintes référentielles.</p>
+            </div>
+
+            <div class="content-box">
+                <h4 style="color: #667eea; margin-bottom: 1rem;">
+                    <i class="fas fa-code"></i> Développement
+                </h4>
+                <p>Programmation Java orientée objet, pattern DAO, JDBC, gestion des exceptions, et architecture en couches pour une application maintenable.</p>
+            </div>
+
+            <div class="content-box">
+                <h4 style="color: #667eea; margin-bottom: 1rem;">
+                    <i class="fas fa-database"></i> Base de données
+                </h4>
+                <p>SQL avancé, création de tables, contraintes référentielles, triggers, transactions, et optimisation de requêtes pour la performance.</p>
+            </div>
+
+            <div class="content-box">
+                <h4 style="color: #667eea; margin-bottom: 1rem;">
+                    <i class="fas fa-tasks"></i> Gestion de projet
+                </h4>
+                <p>Versionnement Git/GitHub, documentation technique, tests unitaires, méthodologie agile et respect des délais de livraison.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liens -->
+    <section class="section-project">
+        <h2 class="section-title">
+            <i class="fas fa-link"></i>
+            Liens et ressources
+        </h2>
+
+        <div class="links-section">
+            <a href="VOTRE_LIEN_GITHUB_PROJET" class="link-box" target="_blank">
+                <i class="fab fa-github"></i>
+                <h4>Code source</h4>
+                <p>Repository GitHub complet du projet Java</p>
+            </a>
+
+            <a href="VOTRE_LIEN_GITHUB_PROJET/blob/main/README.md" class="link-box" target="_blank">
+                <i class="fas fa-book"></i>
+                <h4>Documentation</h4>
+                <p>Guide d'installation et d'utilisation</p>
+            </a>
+
+            <a href="VOTRE_LIEN_GITHUB_PROJET/blob/main/database.sql" class="link-box" target="_blank">
+                <i class="fas fa-file-code"></i>
+                <h4>Script SQL</h4>
+                <p>Création de la base de données</p>
+            </a>
+
+            <a href="index.html" class="link-box">
+                <i class="fas fa-briefcase"></i>
+                <h4>Portfolio</h4>
+                <p>Voir tous mes autres projets</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #2d3748; color: white; padding: 3rem 2rem; text-align: center;">
+        <div class="container">
+            <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">&copy; 2024 Reda Ait Ammar - BTS SIO SLAM</p>
+            <p style="opacity: 0.8;">
+                <a href="index.html" style="color: #68d391; text-decoration: none;">← Retour au portfolio</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

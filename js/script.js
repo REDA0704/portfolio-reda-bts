@@ -1,62 +1,109 @@
-// FILTRE PROJETS
-function filtrer(type) {
-    const projets = document.querySelectorAll('.projet');
+// script.js corrigé
+document.addEventListener('DOMContentLoaded', function() {
+    // Menu mobile
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    projets.forEach(projet => {
-        if (type === "all") {
-            projet.style.display = "block";
-        } else {
-            if (projet.classList.contains(type)) {
-                projet.style.display = "block";
-            } else {
-                projet.style.display = "none";
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Gestion du thème
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const icon = themeToggle.querySelector('i');
+        
+        // Vérifier le thème sauvegardé
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            if (icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
             }
         }
-    });
-}
 
-// MODE SOMBRE
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-}
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                if (icon) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+                localStorage.setItem('theme', 'dark');
+            } else {
+                if (icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
 
-// ANIMATION AU SCROLL
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-});
+    // Navigation active au scroll (version simplifiée)
+    function updateActiveLink() {
+        const scrollPosition = window.scrollY + 100;
+        
+        navLinks.forEach(link => {
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const section = document.getElementById(targetId.substring(1));
+                
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                }
+            }
+        });
+    }
 
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-});
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
 
-// COMPTEUR ANIMÉ
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
-    const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-
-        const increment = target / 100;
-
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCounter, 20);
+    // Navbar background change
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar?.classList.add('scrolled');
         } else {
-            counter.innerText = target;
+            navbar?.classList.remove('scrolled');
         }
-    };
-
-    updateCounter();
-}
-
-// Scroll fluide vers le profil
-function scrollProfil() {
-    document.getElementById("apropos").scrollIntoView({
-        behavior: "smooth"
     });
+
+    // Animation au scroll (simplifiée et sans boucle infinie)
+    const animatedElements = document.querySelectorAll('.section, .project-card, .formation-card, .mission-card, .article-card, .competence-item');
+    
+    // Appliquer les styles initiaux
+    animatedElements.forEach(el => {
+        el.style.opacity = '1'; // Changé de '0' à '1' pour éviter le problème de chargement
+        el.style.transform = 'translateY(0)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+
+    // Scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const presentationSection = document.getElementById('presentation');
+            if (presentationSection) {
+                window.scrollTo({
+                    top: presentationSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 });
