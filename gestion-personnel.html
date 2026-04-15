@@ -73,62 +73,62 @@
             </div>
         </div>
 
-<!-- MCD -->
-<div class="project-section">
-    <h2 class="project-section-title">
-        <i class="fas fa-project-diagram"></i>
-        Modèle Conceptuel de Données (MCD)
-    </h2>
+        <!-- MCD -->
+        <div class="project-section">
+            <h2 class="project-section-title">
+                <i class="fas fa-project-diagram"></i>
+                Modèle Conceptuel de Données (MCD)
+            </h2>
 
-    <div class="two-column-layout">
+            <div class="two-column-layout">
 
-        <!-- IMAGE MCD -->
-        <div class="project-content-box" style="text-align: center;">
-            <h3 style="margin-bottom: 1rem;">Schéma MCD</h3>
+                <!-- IMAGE MCD -->
+                <div class="project-content-box" style="text-align: center;">
+                    <h3 style="margin-bottom: 1rem;">Schéma MCD</h3>
 
-            <img src="image/MCD.png" 
-                 alt="MCD M2L"
-                 style="width: 100%; max-width: 500px; border-radius: 12px; border: 1px solid var(--border);">
-        </div>
+                    <img src="image/MCD.png" 
+                        alt="MCD M2L"
+                        style="width: 100%; max-width: 500px; border-radius: 12px; border: 1px solid var(--border);">
+                </div>
 
-        <!-- SQL -->
-        <div class="project-content-box">
-            <h3 style="margin-bottom: 1rem;">Script SQL</h3>
+                <!-- SQL -->
+                <div class="project-content-box">
+                    <h3 style="margin-bottom: 1rem;">Script SQL</h3>
 
-            <div class="sql-code-block" style="font-size: 0.85rem;">
-<div class="sql-code-block">
-<code>
-CREATE TABLE LIGUE (
-    num_ligue INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(100) NOT NULL
-);
+                    <div class="sql-code-block" style="font-size: 0.85rem;">
+                        <div class="sql-code-block">
+                            <code>
+                            CREATE TABLE LIGUE (
+                                num_ligue INT AUTO_INCREMENT PRIMARY KEY,
+                                nom VARCHAR(100) NOT NULL
+                            );
 
-CREATE TABLE EMPLOYE (
-    num_employe INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(100) NOT NULL,
-    prenom VARCHAR(100) NOT NULL,
-    mail VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    date_arrivee DATE NOT NULL,
-    date_depart DATE,
-    num_ligue INT,
-    FOREIGN KEY (num_ligue) REFERENCES LIGUE(num_ligue)
-);
+                            CREATE TABLE EMPLOYE (
+                                num_employe INT AUTO_INCREMENT PRIMARY KEY,
+                                nom VARCHAR(100) NOT NULL,
+                                prenom VARCHAR(100) NOT NULL,
+                                mail VARCHAR(255) NOT NULL UNIQUE,
+                                password VARCHAR(255) NOT NULL,
+                                date_arrivee DATE NOT NULL,
+                                date_depart DATE,
+                                num_ligue INT,
+                                FOREIGN KEY (num_ligue) REFERENCES LIGUE(num_ligue)
+                            );
 
-CREATE TABLE ADMINISTRER (
-    num_ligue INT UNIQUE NOT NULL,
-    num_employe INT UNIQUE NOT NULL,
-    PRIMARY KEY (num_ligue, num_employe),
-    FOREIGN KEY (num_ligue) REFERENCES LIGUE(num_ligue),
-    FOREIGN KEY (num_employe) REFERENCES EMPLOYE(num_employe)
-);
-</code>
-</div>
+                            CREATE TABLE ADMINISTRER (
+                                num_ligue INT UNIQUE NOT NULL,
+                                num_employe INT UNIQUE NOT NULL,
+                                PRIMARY KEY (num_ligue, num_employe),
+                                FOREIGN KEY (num_ligue) REFERENCES LIGUE(num_ligue),
+                                FOREIGN KEY (num_employe) REFERENCES EMPLOYE(num_employe)
+                            );
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-    </div>
-</div>
 
         <!-- Technologies -->
         <div class="project-section">
@@ -216,58 +216,55 @@ CREATE TABLE ADMINISTRER (
         </div>
 
         <div class="project-section">
-    <h2 class="project-section-title">
-        <i class="fas fa-desktop"></i>
-        Interface graphique (Java Swing)
-    </h2>
+            <h2 class="project-section-title"><i class="fas fa-desktop"></i>Interface graphique (Java Swing)</h2>
 
-    <div class="two-column-layout">
-        
-        <div class="project-content-box">
-            <h3 style="color: var(--primary); margin-bottom: 1rem;">
-                <i class="fas fa-window-maximize"></i> Développement UI
-            </h3>
-            <p>
-                Une interface graphique a été développée en <strong>Java Swing</strong> afin de remplacer 
-                l'interface en ligne de commande initiale. L'objectif était de proposer une application 
-                plus intuitive et accessible aux utilisateurs.
-            </p>
+            <div class="two-column-layout">
+                
+                <div class="project-content-box">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-window-maximize"></i> Développement UI
+                    </h3>
+                    <p>
+                        Une interface graphique a été développée en <strong>Java Swing</strong> afin de remplacer 
+                        l'interface en ligne de commande initiale. L'objectif était de proposer une application 
+                        plus intuitive et accessible aux utilisateurs.
+                    </p>
 
-            <ul style="line-height: 2; margin-top: 1rem;">
-                <li>Création de fenêtres avec <strong>JFrame</strong></li>
-                <li>Utilisation de composants Swing (JButton, JTable, JTextField)</li>
-                <li>Gestion des événements (ActionListener)</li>
-                <li>Navigation entre les écrans</li>
-                <li>Affichage dynamique des données</li>
-            </ul>
+                    <ul style="line-height: 2; margin-top: 1rem;">
+                        <li>Création de fenêtres avec <strong>JFrame</strong></li>
+                        <li>Utilisation de composants Swing (JButton, JTable, JTextField)</li>
+                        <li>Gestion des événements (ActionListener)</li>
+                        <li>Navigation entre les écrans</li>
+                        <li>Affichage dynamique des données</li>
+                    </ul>
+                </div>
+
+                <div class="project-content-box">
+                    <h3 style="color: var(--green); margin-bottom: 1rem;">
+                        <i class="fas fa-lightbulb"></i> Apports du projet
+                    </h3>
+                    <p>
+                        Le développement de cette interface m'a permis de mieux comprendre la conception 
+                        d'applications desktop ainsi que l'interaction entre l'utilisateur et le système.
+                    </p>
+
+                    <ul style="line-height: 2; margin-top: 1rem;">
+                        <li>Amélioration de l'expérience utilisateur (UX)</li>
+                        <li>Structuration d'une interface graphique</li>
+                        <li>Gestion des interactions utilisateur</li>
+                        <li>Connexion avec la base de données via JDBC</li>
+                        <li>Architecture plus professionnelle</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Image UI -->
+            <div style="margin-top: 3rem; text-align: center;">
+                <img src="images/swing-ui.png" alt="Interface Java Swing"
+                    style="width: 70%; border-radius: 12px; border: 1px solid var(--border);">
+            </div>
         </div>
-
-        <div class="project-content-box">
-            <h3 style="color: var(--green); margin-bottom: 1rem;">
-                <i class="fas fa-lightbulb"></i> Apports du projet
-            </h3>
-            <p>
-                Le développement de cette interface m'a permis de mieux comprendre la conception 
-                d'applications desktop ainsi que l'interaction entre l'utilisateur et le système.
-            </p>
-
-            <ul style="line-height: 2; margin-top: 1rem;">
-                <li>Amélioration de l'expérience utilisateur (UX)</li>
-                <li>Structuration d'une interface graphique</li>
-                <li>Gestion des interactions utilisateur</li>
-                <li>Connexion avec la base de données via JDBC</li>
-                <li>Architecture plus professionnelle</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <!-- Image UI -->
-    <div style="margin-top: 3rem; text-align: center;">
-        <img src="images/swing-ui.png" alt="Interface Java Swing"
-             style="width: 70%; border-radius: 12px; border: 1px solid var(--border);">
-    </div>
-</div>
 
         <!-- Compétences -->
         <div class="project-section skills-section-detail">
