@@ -140,18 +140,43 @@
                 
                 <!-- EXPLICATION -->
                 <div class="project-content-box">
-                    <h3 style="margin-bottom: 1rem;">Relations</h3>
+
+                    <h3 style="margin-bottom: 1rem;">Contraintes métier</h3>
 
                     <ul>
-                        <li><strong>Users ↔ Posts :</strong> relation 1-N</li>
-                        <li><strong>Users ↔ Users :</strong> relation N-N (follow)</li>
-                        <li><strong>Users ↔ Posts :</strong> relation N-N (likes)</li>
+
+                        <li>
+                            <strong>Abonnement :</strong>
+                            un utilisateur ne peut pas se suivre lui-même.
+                        </li>
+
+                        <li>
+                            <strong>Likes :</strong>
+                            un utilisateur ne peut liker qu’une seule fois un même post
+                            (unicité utilisateur/post).
+                        </li>
+
+                        <li>
+                            <strong>Posts :</strong>
+                            un post doit obligatoirement contenir un texte avant publication.
+                        </li>
+
+                        <li>
+                            <strong>Sécurité :</strong>
+                            seul le propriétaire d’un post peut le modifier ou le supprimer.
+                        </li>
+
                     </ul>
 
                     <p style="margin-top: 1rem;">
-                        Ces relations sont gérées avec <strong>Eloquent ORM</strong> 
-                        via des tables pivot (followers, likes).
+
+                        Ces règles métier sont contrôlées côté serveur via
+                        <strong>Laravel</strong>, les contrôleurs et les validations
+                        afin de garantir la cohérence des données et la sécurité
+                        de l’application.
+
                     </p>
+
                 </div>
 
             </div>
