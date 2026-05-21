@@ -63,11 +63,11 @@
                         <i class="fas fa-check-circle"></i> Travail réalisé
                     </h3>
                     <ul style="line-height: 2;">
-                        <li>✅ Conception et implémentation base de données MySQL</li>
-                        <li>✅ Création du MCD/MLD selon les règles Merise</li>
-                        <li>✅ Migration de la sérialisation vers JDBC</li>
-                        <li>✅ Développement des DAO (Data Access Objects)</li>
-                        <li>✅ Gestion des relations ligues/employés</li>
+                        <li>Conception et implémentation base de données MySQL</li>
+                        <li>Création du MCD/MLD selon les règles Merise</li>
+                        <li>Migration de la sérialisation vers JDBC</li>
+                        <li>Développement des DAO (Data Access Objects)</li>
+                        <li>Gestion des relations ligues/employés</li>
                     </ul>
                 </div>
             </div>
@@ -172,6 +172,104 @@
             </div>
         </div>
 
+        <!-- Modes d'exécution -->
+        <div class="project-section">
+            <h2 class="project-section-title">
+                <i class="fas fa-play-circle"></i>
+                Modes d'exécution
+            </h2>
+
+            <div class="two-column-layout">
+                
+                <!-- Mode Swing -->
+                <div class="project-content-box">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-window-maximize"></i> Interface graphique (Swing)
+                    </h3>
+                    
+                    <p>Interface visuelle avec fenêtre de connexion, dashboard et gestion intuitive du personnel.</p>
+
+                    <h4 style="margin-top: 1rem; margin-bottom: 0.5rem;">Lancement :</h4>
+                    <p style="margin: 0;">Exécuter la classe <code>Main.java</code></p>
+                </div>
+
+                <!-- Mode CLI -->
+                <div class="project-content-box">
+                    <h3 style="color: var(--green); margin-bottom: 1rem;">
+                        <i class="fas fa-terminal"></i> Ligne de commande (CLI)
+                    </h3>
+                    
+                    <p>Interface textuelle avec menus interactifs pour la gestion du personnel en console.</p>
+
+                    <h4 style="margin-top: 1rem; margin-bottom: 0.5rem;">Lancement :</h4>
+                    <p style="margin: 0;">S'exécute par défaut au lancement de l'application.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Authentification -->
+        <div class="project-section">
+            <h2 class="project-section-title">
+                <i class="fas fa-lock"></i>
+                Authentification
+            </h2>
+
+            <div class="project-content-box">
+                <h3 style="margin-bottom: 1.5rem;">Identifiants par défaut</h3>
+                
+                <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                    <p style="margin: 0.75rem 0; font-size: 1.1rem;"><strong>Email :</strong> <code style="background: #e2e8f0; padding: 0.25rem 0.5rem; border-radius: 4px;">root</code></p>
+                    <p style="margin: 0.75rem 0; font-size: 1.1rem;"><strong>Mot de passe :</strong> <code style="background: #e2e8f0; padding: 0.25rem 0.5rem; border-radius: 4px;">toor</code></p>
+                </div>
+
+                <p style="margin-top: 1.5rem; margin-bottom: 0;">Au premier lancement, si la base de données est vide, le ROOT est créé automatiquement. Tous les mots de passe sont hashés avec BCrypt.</p>
+            </div>
+        </div>
+
+        <!-- Système de contrôle d'accès -->
+        <div class="project-section">
+            <h2 class="project-section-title">
+                <i class="fas fa-shield-alt"></i>
+                Système de contrôle d'accès
+            </h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-crown"></i> ROOT</h4>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Voir toutes les ligues</li>
+                        <li>Ajouter/modifier/supprimer ligues</li>
+                        <li>Gérer tous les employés</li>
+                        <li>Changer les administrateurs</li>
+                        <li>Accès complet</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-user-tie"></i> ADMIN LIGUE</h4>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Voir toutes les ligues</li>
+                        <li>Modifier sa ligue uniquement</li>
+                        <li>Gérer employés de sa ligue</li>
+                        <li>Pas de création de ligue</li>
+                        <li>Accès limité à sa ligue</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-user"></i> EMPLOYE</h4>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Consulter les ligues</li>
+                        <li>Consulter les employés</li>
+                        <li>Modifier son compte</li>
+                        <li>Pas de droit d'écriture</li>
+                        <li>Lecture seule</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Fonctionnalités -->
         <div class="project-section">
             <h2 class="project-section-title">
@@ -215,50 +313,7 @@
             </div>
         </div>
 
-        <div class="project-section">
-            <h2 class="project-section-title"><i class="fas fa-desktop"></i>Interface graphique (Java Swing)</h2>
 
-            <div class="two-column-layout">
-                
-                <div class="project-content-box">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">
-                        <i class="fas fa-window-maximize"></i> Développement UI
-                    </h3>
-                    <p>
-                        Une interface graphique a été développée en <strong>Java Swing</strong> afin de remplacer 
-                        l'interface en ligne de commande initiale. L'objectif était de proposer une application 
-                        plus intuitive et accessible aux utilisateurs.
-                    </p>
-
-                    <ul style="line-height: 2; margin-top: 1rem;">
-                        <li>Création de fenêtres avec <strong>JFrame</strong></li>
-                        <li>Utilisation de composants Swing (JButton, JTable, JTextField)</li>
-                        <li>Gestion des événements (ActionListener)</li>
-                        <li>Navigation entre les écrans</li>
-                        <li>Affichage dynamique des données</li>
-                    </ul>
-                </div>
-
-                <div class="project-content-box">
-                    <h3 style="color: var(--green); margin-bottom: 1rem;">
-                        <i class="fas fa-lightbulb"></i> Apports du projet
-                    </h3>
-                    <p>
-                        Le développement de cette interface m'a permis de mieux comprendre la conception 
-                        d'applications desktop ainsi que l'interaction entre l'utilisateur et le système.
-                    </p>
-
-                    <ul style="line-height: 2; margin-top: 1rem;">
-                        <li>Amélioration de l'expérience utilisateur (UX)</li>
-                        <li>Structuration d'une interface graphique</li>
-                        <li>Gestion des interactions utilisateur</li>
-                        <li>Connexion avec la base de données via JDBC</li>
-                        <li>Architecture plus professionnelle</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
 
         <!-- Compétences -->
         <div class="project-section skills-section-detail">
