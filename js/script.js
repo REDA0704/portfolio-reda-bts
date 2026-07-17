@@ -744,21 +744,44 @@ class ProjectCarousel {
     constructor(container) {
         this.container = container;
         this.images = container.querySelectorAll('.carousel-image');
-        this.indicators = container.querySelectorAll('.indicator');
+
+        // On récupère le conteneur des indicateurs existant (au lieu des indicateurs eux-mêmes)
+        this.indicatorsContainer = container.querySelector('.carousel-indicators');
         this.currentIndex = 0;
         this.autoplayInterval = null;
-        
+
         this.init();
     }
 
     init() {
+        // Génère un nombre d'indicateurs qui correspond exactement au nombre d'images
+        this.buildIndicators();
+
         // Défilement automatique toutes les 4 secondes
         this.startAutoplay();
-        
+
         // Clic sur les indicateurs
         this.indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => this.goToSlide(index));
         });
+    }
+
+    buildIndicators() {
+        if (!this.indicatorsContainer) return;
+
+        // On vide les indicateurs codés en dur dans le HTML
+        this.indicatorsContainer.innerHTML = '';
+
+        // On en recrée un par image, dynamiquement
+        this.images.forEach((_, index) => {
+            const span = document.createElement('span');
+            span.classList.add('indicator');
+            if (index === 0) span.classList.add('active');
+            span.dataset.index = index;
+            this.indicatorsContainer.appendChild(span);
+        });
+
+        this.indicators = this.indicatorsContainer.querySelectorAll('.indicator');
     }
 
     goToSlide(index) {
@@ -768,13 +791,18 @@ class ProjectCarousel {
     }
 
     updateSlide() {
+        // Sécurité : si jamais il n'y a pas d'images ou d'indicateurs, on ne fait rien
+        if (!this.images.length) return;
+
         // Masquer toutes les images
         this.images.forEach(img => img.classList.remove('active'));
         this.indicators.forEach(ind => ind.classList.remove('active'));
-        
+
         // Afficher l'image actuelle
         this.images[this.currentIndex].classList.add('active');
-        this.indicators[this.currentIndex].classList.add('active');
+        if (this.indicators[this.currentIndex]) {
+            this.indicators[this.currentIndex].classList.add('active');
+        }
     }
 
     nextSlide() {
