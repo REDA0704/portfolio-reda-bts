@@ -339,8 +339,9 @@ function initHeroAnimations() {
     if (heroName) {
         const nameValue = heroName.querySelector('.name-value');
         if (nameValue) {
-            const originalText = nameValue.textContent;
-            nameValue.textContent = '';
+                nameValue.style.opacity = '1'; // rend visible juste avant l'écriture
+                const originalText = nameValue.textContent;
+                nameValue.textContent = '';
             anime({
                 targets: { value: 0 },
                 value: originalText.length,
@@ -361,6 +362,17 @@ function initHeroAnimations() {
                 }
             });
         }
+    }
+
+    const heroGreeting = document.querySelector('.hero-greeting');
+    if (heroGreeting) {
+        anime({
+            targets: heroGreeting,
+            opacity: [0, 1],
+            translateY: [-10, 0],
+            duration: 800,
+            easing: 'easeOutExpo'
+        });
     }
     
     const heroTitle = document.querySelector('.hero-title');
@@ -525,7 +537,7 @@ function initTimelineAnimations() {
 
 function initAlternanceAnimations() {
     const targets = document.querySelectorAll(
-        '#alternance .logo, #alternance .presentation-wrapper, #alternance .stats-wrapper, #alternance .role-table-wrapper, #alternance .role-graph, #alternance .timeline-title'
+        '#alternance .logo, #alternance .presentation-wrapper, #alternance .stats-wrapper, #alternance .role-container, #alternance .timeline-title + p, #alternance .timeline-title'
     );
     targets.forEach((el, index) => {
         inView(el, () => {

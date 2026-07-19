@@ -575,6 +575,7 @@ img {
     align-items: center;
 }
 
+
 .hero-image-container {
     position: relative;
     width: 400px;
@@ -2933,4 +2934,28 @@ svg {
     height: 100%;
     object-fit: contain;
     object-position: center;
+}
+
+.hero-title,
+.hero-description,
+.hero-buttons .btn,
+.hero-social .social-icon,
+.name-value,
+#profileImage,
+.floating-badge {
+    opacity: 0;
+}
+
+#veille .veille-intro,
+#veille .veille-illustration,
+#veille .veille-section,
+#veille .veille-outils,
+#veille .veille-capture,
+#alternance .logo,
+#alternance .presentation-wrapper,
+#alternance .stats-wrapper,
+#alternance .timeline-title,
+#alternance .timeline-title + p ,
+#alternance .role-container {
+    opacity: 0;
 }
