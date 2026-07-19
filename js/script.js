@@ -321,8 +321,10 @@ function initPageAnimations() {
         initHeroAnimations();
         initSkillAnimations();
         initTimelineAnimations();
+        initAlternanceAnimations();
         initProjectAnimations();
         initScrollAnimations();
+        initVeilleAnimations();
         initContactAnimations();
         animateStats();
         initParallax();
@@ -521,6 +523,26 @@ function initTimelineAnimations() {
     });
 }
 
+function initAlternanceAnimations() {
+    const targets = document.querySelectorAll(
+        '#alternance .logo, #alternance .presentation-wrapper, #alternance .stats-wrapper, #alternance .role-table-wrapper, #alternance .role-graph, #alternance .timeline-title'
+    );
+    targets.forEach((el, index) => {
+        inView(el, () => {
+            if (typeof anime !== 'undefined') {
+                anime({
+                    targets: el,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    delay: index * 100,
+                    duration: 800,
+                    easing: 'easeOutExpo'
+                });
+            }
+        }, { amount: 0.2 });
+    });
+}
+
 function initProjectAnimations() {
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach((card, index) => {
@@ -622,6 +644,26 @@ function animateStats() {
 
         }, { amount: 0.5 });
 
+    });
+}
+
+function initVeilleAnimations() {
+    const targets = document.querySelectorAll(
+        '#veille .veille-intro, #veille .veille-illustration, #veille .veille-section, #veille .veille-outils, #veille .veille-capture'
+    );
+    targets.forEach((el, index) => {
+        inView(el, () => {
+            if (typeof anime !== 'undefined') {
+                anime({
+                    targets: el,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    delay: index * 100,
+                    duration: 800,
+                    easing: 'easeOutExpo'
+                });
+            }
+        }, { amount: 0.2 });
     });
 }
 
@@ -818,3 +860,4 @@ class ProjectCarousel {
 document.querySelectorAll('.project-image').forEach(card => {
     new ProjectCarousel(card);
 });
+
